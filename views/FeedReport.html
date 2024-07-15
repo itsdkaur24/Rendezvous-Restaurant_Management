@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Restaurant Page</title>
+	<script src="../js/profile.js"></script>
+	<script src="../js/logic.js"></script>
+	<style>
+		header {
+			text-align: center;
+		}
+		table {
+			border-collapse: collapse;
+			padding: 10px;
+			border: 1px solid black;
+			margin: 0 auto;
+		}
+		th, td {
+			border: 1px solid black;
+			padding: 5px;
+		}
+		main {
+			margin: 0;
+			padding: 10px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			width: 856px;
+			height: 1200px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<button id="dwnld-button">Download PDF</button><br><br>
+	<main>
+	<header>
+		<h1>Rendezvous Restaurant</h1>
+		<p>Kashmir Plaza, Bharat nagar,Batala Road</p>
+		<p>+91 7182187572 </p>
+	</header>
+			<h2>Feedback Report</h2>
+				<br>
+				<h3>Total Feedback:&nbsp;&nbsp;{{it.details[0].Count}}</h3>
+				
+ <br><br>
+		<table>
+			<thead> 
+				<tr>
+					<th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Rating</th>
+                    <th>Message</th>
+                   
+				</tr>
+			</thead>
+			<tbody>
+				{{@each(it.FeedReport)=>row,idx}}
+				<tr>
+					<td id="idx">{{idx+1}}</td>
+                    <td id="name">{{row.name}}</td>
+                    <td id="email">{{row.email}}</td>
+                    <td id="rating">{{row.rating}}</td>
+                    <td id="message">{{row.message}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</main>
+</body>
+<script>
+    var button = document.getElementById("dwnld-button");
+  
+    button.addEventListener("click", function () {
+		window.print();
+    });
+</script>
+</html>

@@ -1,0 +1,184 @@
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="./style/style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&family=Tangerine&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Metal&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style >
+        
+        .address {
+          color: #ffcec2;
+          text-align: center;
+          font-family: Alice ;
+          text-shadow: #c9c5c5;
+          }
+
+        .content{
+          color: #ffcec2;
+          text-align: center;
+        }
+        
+        body { 
+          background-color:#3a0c00;
+          margin-bottom: 50px; 
+          margin-right:30px;
+          margin-left:30px;
+         
+        }
+
+        .carousel-inner img {
+         width: 100%;
+         height: 100%;
+         
+        }
+
+        a{
+          color:#ffcec2 
+          ;
+        }
+
+        .carousel{
+            border: 6px double #ffcec2 ;
+            padding: 10px;
+            border-radius: 12px;
+            width:100%;
+            height:680px;
+            
+             }
+             .profile-dropdown .dropdown-menu a:hover {
+  background-color: #ffcec2;
+  color: #3a0c00;
+}
+
+</style>
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm  justify-content-center sticky-top" >
+    <a href="/"><p class="name">Rendezvous</p></a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">ABOUT US</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">MENU</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/catering">CATERING</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/hours-location">HOURS & LOCATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/reservation">RESERVATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link"href="/feedback">FEEDBACK</a>
+        </li>
+       </ul>
+       {{@if(it.user != 0)}}
+        <div class="profile-dropdown">
+          <a class="profile dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="./img/profile.png" alt="Profile Icon" id="profile-img">
+          </a>
+          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="/profile">Profile</a>
+            <a class="dropdown-item" href="/TermsConditions">Terms & Conditions</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+          </div>
+        {{/if}}
+   </nav>
+      <br><br><br><br><br><br>
+      <div class="Menu-container"data-aos="fade-up">
+       <div class="heading">Our Menu</div><br>
+       <div class="paragraph"data-aos="fade-up">
+        Welcome to our restaurant, where we take pride in offering a delicious and authentic taste of Indian cuisine. Our menu is a celebration of the diverse and vibrant flavors of India, crafted with care and expertise by our talented chefs.
+
+        Indian cuisine is known for its rich and bold flavors, which are achieved through the use of aromatic spices and herbs. From the fiery heat of chili peppers to the subtle sweetness of cardamom, each spice adds its own unique character to our dishes. Our menu features a range of traditional Indian dishes, including curries, biryanis, tandoori meats, and vegetarian options, all bursting with flavor and made with the freshest ingredients.
+
+        Whether you're a long-time fan of Indian cuisine or trying it for the first time, we invite you to come and experience the authentic taste of India at our restaurant. Our team is dedicated to providing you with a warm and welcoming dining experience, and we look forward to serving you soon.
+       </div>
+
+
+       <br><br><br>
+       <div class="buttons">
+       <button onclick="showImage('image1')" class="snacks">SNACKS</button>
+       <button onclick="showImage('image2')"class="main">MAIN COURSE</button>
+       <button onclick="showImage('image3')"class="dd"> DRINKS & DESSERTS </button>
+      </div>
+
+
+    
+       <div id="image1" class="menu" >
+         <img src="./img/snacks2.png" alt="Image 1">
+       </div>
+       
+       <div id="image2" class="menu" style="display:none;">
+         <img src="./img/Main Course2.png" alt="Image 2">
+         <img src="./img/main course 3.png" alt="Image 3">
+
+         
+       </div>
+       
+       <div id="image3" class="menu" style="display:none;">
+         <img src="./img/Drinks&Desserts2.png" alt="Image 4">
+       </div>
+       
+       <br><br>
+      </div>
+       
+    
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+  {{@if(it.user == 0)}}
+  <a href="/login" class="button2">LOGIN NOW</a>
+  <a href="/contactus" class="button3">CONTACT US</a>
+{{#else}}
+  <a href="/contactus" class="button3" style="margin-right: 85px;">CONTACT US</a>
+{{/if}}
+
+  <a href="https://www.instagram.com/" class="instagram" ><img src="./img/icons8-instagram-48.png" height="35px" width="35px"></a>
+  <a href="https://www.facebook.com/" class="facebook" ><img src="./img/icons8-facebook-circled-48.png" height="35px" width="35px"></a>
+      </div>
+
+
+      
+      
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init({
+          offset: 300,
+          duration:900,
+          delay:0
+        });
+      </script>  
+    <script src="/js/index.js"></script>
+</body>
+</html>

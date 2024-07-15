@@ -1,0 +1,146 @@
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="eventName"class="modal-title">Birthday Party</h2>
+        </div>
+        <div class="modal-body">
+          <br><br>
+            Items Charges --------------------------------------------------------<label id="ItemPrice" style="font-family:'Times New Roman', Times, serif;font-size: 17px;">₹4,690</label><br><br>
+            Tax Charges ----------------------------------------------------------<label id="Tax"style="font-family:'Times New Roman', Times, serif;font-size: 17px;"> ₹844.2</label><br><br>
+            Total Charges --------------------------------------------------------<label id="TotalPrice"style="font-family:'Times New Roman', Times, serif;font-size: 17px;">₹5,534</label> 
+         <button  onclick="Pay()">Pay</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!--modal_proceed1-->
+<div class="modal" id="myModal_proceed1">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h2 id="eventName">Birthday Party</h2>
+      <button data-dismiss="modal">&times;</button>
+     </div>
+     <div class="modal-body">
+      <div class="modal-content1">
+    
+<br><br>
+    Items Charges --------------------------------------------------------<label id="ItemPrice" style="font-family:'Times New Roman', Times, serif;font-size: 17px;">₹4,690</label><br><br>
+    Tax Charges ----------------------------------------------------------<label id="Tax"style="font-family:'Times New Roman', Times, serif;font-size: 17px;"> ₹844.2</label><br><br>
+    Total Charges --------------------------------------------------------<label id="TotalPrice"style="font-family:'Times New Roman', Times, serif;font-size: 17px;">₹5,534</label>
+      </div>   
+      </div>
+     
+    <div class="modal-footer">
+      <button type="button" class="bt_proceed1" data-toggle="modal" data-target="#myModal_proceed1"data-dismiss="modal" onclick="Pay()">Pay</button> 
+    </div>
+     
+   </div>
+  </div>
+</div> 
+ 
+
+
+app.get('/invoice',async(req,res,next)=>{
+  if(req.session.user != undefined){
+      res.redirect('/user/invoice');
+  }
+  else{
+      res.redirect('/login');
+  }
+})
+
+async function invoice(OrdID){
+  var orderId=OrdID;
+  
+     //console.log(resp);
+  let resp = await fetch(`/user/invoice?orderId=${orderId}`, {
+     method: "GET",
+     headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+     }
+
+  });
+  
+   
+}
+
+router.get('/invoice/:orderId',async(req,res,next)=>{
+  var response={};
+  console.log(string(orderId));
+  console.log(typeof(string(orderId)));
+  //console.log("profile "+req.session.user.email);
+  query="select id,event,date,time,food from catering where id=? ";
+  connection.query(query,[req.params.orderId],(err,results)=>{
+    
+    if(!err){
+      console.log(results);
+      res.render('invoice.html',{invoice:results});
+    }
+    else{
+      console.log(err);
+      window.alert("Error");
+    }
+  })
+})
+
+{{@each(it.orders)=>row,idx}}
+<div class="card" style="border-color: #ffcec2;">
+  <img src="../img/{{row.image}}" >
+  <div class="card-content">
+    <h2 id="event">{{row.event}}</h2><br><br>
+    <p><div  id="id"class="row1">
+      Order ID:{{row.id}} 
+     </div><br>
+      <div  id="date"class="row1">
+     Date:{{row.date}}
+    </div><br>
+    <div id="time" class="row2">
+     Time:{{row.time}}
+    </div><br>
+    <div id="guests" class="row3">
+      Guests:{{row.guests}}
+      </div><br>
+    <div id="food"class="row4">
+      Food:{{row.food}}
+    </div><br>
+    <div id="cost">
+      Cost:{{row.cost}}
+    </div> 
+    </p>
+   <button onclick="invoice(`{{row.id}}`)">GET INVOICE</button>
+  </div>
+</div>  
+
+{{/each}}   
+  
+This is the invoice .html code where I want to input the data from backend
+ 
+
+<div class="col">
+  <p>Order ID:<label id="ordId"></label></p>
+  <p>Event Name:<label id="ordEvent" ></label></p>
+  <p>Date: <label id="ordDate"></label></p>
+  <p>Time: <label id="ordTime"></label></p>
+  <p>Food:<label id="ordid"> </label></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

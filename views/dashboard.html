@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style/style_dashboard2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+    <link  href="https://cdnjs.cloudfare.com/ajax/libs/twitter-bootsrap/4.1.1/css/bootstrap.min.css">
+ 
+</head> 
+<body >
+
+<!-------------------------------------------------------------Navigation Bar---------------------------------------------------------------------->
+
+<div class="container">
+  <div class="navigation">
+    <ul>
+      <li><br>
+          <span class="title" style="font-size: 47px; font-family:'Tangerine', cursive;font-style: italic; margin-left: 26px; color:#ffcec2;">
+            Rendezvous</span><br>
+      </li>
+
+      <li>
+        <a href="/dashboard">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="title">Home</span>
+        </a>
+      </li> 
+
+      <!-- <li>
+        <a href="/Catering_Event">
+          <span class="icon">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </span>
+          <span class="title">Add Catering Event</span>
+        </a>
+      </li> -->
+
+
+      <li>
+        <a href="/customers">
+          <span class="icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </span>
+          <span class="title">Customers</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/tablereserve">
+          <span class="icon">
+            <ion-icon name="clipboard-outline"></ion-icon>
+          </span>
+          <span class="title">Table Reservations</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/catering_dash">
+          <span class="icon">
+            <ion-icon name="restaurant-outline"></ion-icon>
+          </span>
+          <span class="title">Catering Orders</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/feedback_dash">
+          <span class="icon">
+            <ion-icon name="chatbox-outline"></ion-icon>
+          </span>
+          <span class="title">Feedback</span>
+        </a>
+      </li>
+
+    
+
+      <li>
+        <a href="/admin/logout">
+          <span class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </span>
+          <span class="title">Log Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!----------------------------------------------------------------------Main----------------------------------------------------------------------->
+
+<div class="main">
+
+  <div class="heading">
+  Dashboard
+  </div>
+
+  <div class="user">
+    <img src="../img/customer01.jpg" width="300px" breadth="210px"> 
+  </div>
+  
+</div> 
+ 
+
+<!----------------------------------------------------------------------HELLO---------------------------------------------------------------------->
+
+<div class="Content-head" data-aos="fade-up" >
+  Welcome Admin!
+
+</div>
+
+<div class="Content-card1"  >
+  <div class="card1">
+    <img src="../img/customers.png" alt="Card image" width="150px" height="60px" style="float:right;"><br>
+    <h2 id="custNo">{{it.dashboard[0].Count}}</h2>
+    <p>Total Customers</p>
+    <a href="/customers"><button>Learn More</button></a>
+  </div>
+</div>
+
+<div class="Content-card2" data-aos="fade-up" >
+  <div class="card1">
+    <img src="../img/tables.png" alt="Card image" width="150px" height="60px" style="float:right;">
+    <h2 id="tableNo">{{it.dashboard[3].Count}}</h2>
+    <p>Tables Reserved</p>
+    <a href="/tablereserve"><button>Learn More</button></a>
+  </div>
+</div>
+
+<div class="Content-card3" data-aos="fade-up" >
+  <div class="card3">
+    <img src="../img/catering.png" alt="Card image" width="150px" height="60px" style="float:right;"><br>
+    <h2 id="cateringNo">{{it.dashboard[1].Count}}</h2>
+    <p>Catering Orders</p><br>
+    <a href="/catering_dash"><button>Learn More</button></a>
+  </div>
+</div>
+
+<div class="Content-card4" data-aos="fade-up" >
+  <div class="card4"style="height:200px; width:450px">
+    <img src="../img/feedback.png" alt="Card image" width="150px" height="60px" style="float:right;"><br>
+    <h2 id="FeedbackNo">{{it.dashboard[2].Count}}</h2>
+    <p>Total Feedbacks</p><br>
+    <a href="/feedback_dash"><button>Learn More</button></a>
+  </div>
+</div>
+
+
+<!--FEEDBACK CAROUSEL-->
+
+<div class="wrapper" data-aos="fade-up" >
+  <h1>Our Happy Customers</h1>
+  <h5>Check what they say about us</h5>
+<br><br><br><br>
+  <!-------Review Cards------->
+  <div class="cards">
+    <div class="card">
+      <img src="../img/samntha.jpg">
+      <p> We ordered your food for our  event and  it was a delight to have ordered from your restaurant. Thankyou for making my birthday a lot more special. 
+      </p>
+      <h2 sty>Samantha</h2>
+      <i class="fa fa-quote-left"></i>
+    </div>
+
+    <div class="card">
+      <img src="../img/angad.jpg"> 
+      <p><br>
+        I came with my family and enjoyed alot.The food was not only delicious but also was presented really well. I will surely make a visit again.  
+      </p>
+      <h2>Angad Singh</h2>
+      <i class="fa fa-quote-left"></i>
+    </div>
+
+    <div class="card">
+      <img src="../img/harsh.jpg">
+      <p><br>
+        I have to say that your restaurant's services are really well organised and smooth. Not only the food but the sitting area was also upto mark. 
+      </p>
+      <h2>Harsh</h2>
+      <i class="fa fa-quote-left"></i>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 300,
+      duration:900,
+      delay:0
+    });
+  </script>  
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../js/logic.js"></script>
+   
+</body>
+</html> 

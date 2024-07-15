@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#calendar td {
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#calendar .highlight {
+  background-color: #9fe1e7;
+  color: #fff;
+  font-weight: bold;
+}
+
+</style>
+<body>
+
+    <div id="calendar"></div>
+
+
+</body>
+<script>
+    // Define an array of dates with at least one reservation
+var bookedDates = ['2022-05-01', '2022-05-02', '2022-05-03', '2022-05-05'];
+
+// Get the current year and month
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth();
+
+// Get the number of days in the current month
+var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+// Generate the calendar HTML
+var calendarHtml = '<table>';
+calendarHtml += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+var date = 1;
+for (var i = 0; i < 6; i++) {
+  calendarHtml += '<tr>';
+  for (var j = 0; j < 7; j++) {
+    if (i == 0 && j < new Date(year, month, 1).getDay()) {
+      // Add empty cells before the first day of the month
+      calendarHtml += '<td></td>';
+    } else if (date > daysInMonth) {
+      // Add empty cells after the last day of the month
+      calendarHtml += '<td></td>';
+    } else {
+      // Add a cell for the current date
+      var isoDate = year + '-' + (month + 1).toString().padStart(2, '0') + '-' + date.toString().padStart(2, '0');
+      var highlightClass = bookedDates.includes(isoDate) ? 'highlight' : '';
+      calendarHtml += '<td class="' + highlightClass + '">' + date + '</td>';
+      date++;
+    }
+  }
+  calendarHtml += '</tr>';
+}
+calendarHtml += '</table>';
+
+// Add the calendar HTML to the page
+document.getElementById('calendar').innerHTML = calendarHtml;
+
+</script>
+</html>

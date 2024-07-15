@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style/style_profile.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="../js/profile.js"></script>
+    <script src="../js/logic.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <title>User Profile</title>
+</head> 
+<style>
+/* Header styles */
+body{
+    background-color:  #f4ddd7; 
+}
+header { 
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+    z-index: 9999;
+    
+}
+ 
+.sidebar {
+	height: 100%;
+	width: 300px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #3a0c00;
+	overflow-x: hidden;
+	padding-top: 20px;
+    z-index: 0;
+    font-family: 'Schibsted Grotesk', sans-serif;
+}
+.sidebar{
+  font-size: 18px;
+}
+
+.sidebar a {
+	display: block;
+	color: #ffcec2;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.sidebar a:hover {
+	background-color: #ffcec2;
+	color: #3a0c00;
+}
+
+/* Main content styles */
+main {
+	margin-left: 320px; /* Set the left margin to match the sidebar width */
+	padding: 20px;
+}
+
+.heading {
+            text-align: center;
+            border-bottom: 2px solid #3a0c00;
+            margin-bottom: 20px;
+            font-family: 'Bellefair', serif;
+          font-size: 52px;
+        }
+
+.profile-form button{
+    width: 160px;
+    height: 45px;
+    color: #ffcec2;
+    background-color: #3a0c00;
+    border-radius: 5px;
+   
+}
+
+.profile-form button:hover{
+    width: 160px;
+    height: 45px;
+    color: #fbb4a3;
+    background-color: #3a0c00;
+    border-radius: 5px;
+   
+}
+
+
+</style>
+<body >
+  <div class="sidebar">
+    <a href="/"><ion-icon name="chevron-back-outline"></ion-icon>&nbsp;&nbsp;My Profile</a>
+      <br><br><br><br>
+      <a href="/profile">Account Details</a>
+      <a href="/orders">Orders</a>
+      <a href="/userReservation">Table Reservations</a>
+      <a href="/change_password">Change Password</a>
+      <a href="/TermsConditions">Terms and Conditions</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/logout">Logout</a>
+  </div>
+
+    <main>
+        <div class="heading">
+           Orders
+         </div><br>
+      
+            <label for="filter">Filter by:</label>
+            <select onchange="filterToggle()" id="filter">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="cancelled">Cancelled</option>
+            </select><br><br> 
+    
+             {{@each(it.orders)=>row,idx}}
+            <div class="card filterDiv {{row.status}}" style="border-color: #ffcec2;">
+              <img src="../img/{{row.image}}" > 
+              <div class="card-content">
+                <h2 id="event">{{row.event}}</h2><br><br>
+                <p style="font-size: 15px; font-family: 'Bellefair', serif;"><div  id="id"class="row1">
+                  Order ID:{{row.id}} 
+                 </div><br>
+                  <div  id="date"class="row1">
+                 Date:{{row.date}}
+                </div><br>
+                <div id="time" class="row2"> 
+                 Time:{{row.time}}
+                </div><br>
+                <div id="guests" class="row3">
+                  Guests:{{row.guests}}
+                  </div><br>
+                <div id="food"class="row4"> 
+                  Food:{{row.food}}
+                </div><br>
+                <div id="cost">
+                  Cost:₹{{row.totalprice}}
+                </div><br> 
+                </p><br>
+                {{@if(row.cancel == "yes" )}}
+                <div id="status" style="font-family:'Schibsted Grotesk', sans-serif ;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <ion-icon name="close-circle-outline"></ion-icon>&nbsp;&nbsp;<sup>ORDER CANCELLED</sup>
+                </div><br>
+                {{/if}}
+                {{@if(row.status =="ongoing" )}}
+                <div id="status"style="font-family:'Schibsted Grotesk', sans-serif ;"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <ion-icon name="repeat-outline"></ion-icon>&nbsp;&nbsp;<sup>ORDER ONGOING</sup>
+                </div><br>
+                {{/if}}
+                {{@if(row.status =="completed" )}}
+                <div id="status"style="font-family:'Schibsted Grotesk', sans-serif ;"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <ion-icon name="checkbox-outline"></ion-icon>&nbsp;&nbsp;<sup>ORDER COMPLETED</sup>
+                </div><br>
+                {{/if}}
+               {{@if(row.cancel == "no" && row.status =="completed" )}}
+               <button onclick="window.location.href='/user/invoice?orderId={{row.id}}'">GET INVOICE</button>&nbsp;&nbsp;
+               {{/if}}
+               {{@if(row.status="ongoing" && row.days >=2 && row.cancel == "no"  )}}
+               <button  style="width: 100px;" id="cancel" onclick="cancel(`{{row.id}}`)">Cancel</button>
+               {{/if}}
+                </div>
+            </div>  
+
+            {{/each}}    
+     </main> 
+
+
+     <script>
+      function filterToggle(){
+        var dropdown=document.getElementById('filter').value;
+        if(dropdown=='all'){
+          filterSelection("all");
+        }
+        else if(dropdown=='completed'){
+          filterSelection("completed");
+        }
+        else if(dropdown=='ongoing'){
+          filterSelection("ongoing");
+        }
+        else{
+          filterSelection("cancelled");
+        }
+
+      }
+
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+          removeClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+        }
+      }
+
+      // Show filtered elements
+      function addClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+          }
+        }
+      }
+
+      // Hide elements that are not selected
+    function removeClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+
+
+  
+
+     </script>
+
+
+
+
+
+</body> 
+<!-- <script src="../js/profile.js"></script>
+<script src="../js/logic.js"></script> -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</html>

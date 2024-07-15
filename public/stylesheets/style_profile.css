@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: #f4ddd7;
+}
+
+h1{
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #222;
+}
+
+.profile-pic-div{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: 25%;
+    left: 61%;
+    margin-top: 3%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #3a0c00;
+}
+
+
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.profile-form{
+    margin-top: 23%;
+    margin-left: 27%;
+    padding-top: 20px; 
+    
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="mobile"],
+.profile-form textarea {
+  font-size: 16px;
+  height: 40px;
+  width:390px ;
+  padding: 10px;
+}
+
+
+.profile-form input[type="button"] {
+    background-color:#3a0c00; 
+    color: #ffcec2;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  p[contenteditable="true"] {
+    font-size: 18px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+
+  .profile-form p {
+    width: 450px;
+    height: 38px;
+    border: 1px solid #3a0c00;
+    padding: 10px;
+    box-sizing: border-box;
+    
+  }
+  
+  .profile {
+    display: flex;
+    border-right: 1px solid black;
+    border: #3a0c00;
+  }
+  
+
+  header {
+    border-bottom: 1px solid black;
+  
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  header img {
+    margin-right: 10px; /* Add margin-right to create space between the img and the profile-head */
+  }
+  
+  .profile-head {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Add flex-grow property to the profile-head to occupy remaining space */
+    text-align: center; /* Align text to the center */
+    color: #3a0c00;
+    font-size: 23px;
+  }
+
+  
+  
+  .overlay-profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .profile-pic-div:hover .overlay-profile {
+    opacity: 1;
+  }
+  
+  .overlay-profile button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .profile-pic-div:hover .overlay-profile button {
+    display: block;
+  }
+   
+  .filterDiv {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+
+.card {
+  
+  background-color:#3a0c00;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 470px;
+  width: 1000px;
+  margin-left: 50px;
+  margin-bottom: 45px;
+  font-size: 18px;
+  font-family: 'Bellefair', serif;
+  
+}
+.card img {
+  width: 60%; /* adjust image width as needed */
+  object-fit: cover;
+  margin-right: 20px;
+  border: #ffcec2;
+}
+.card-content {
+  width: 50%; /* adjust content width as needed */
+  color: #ffcec2;
+  position: absolute;
+  transform: translate(75%, -90%);
+}
+.card-content h2 {
+  font-size: 24px;
+  color: #333;
+  color: #ffcec2;
+  margin-left: 85px;
+  font-size: 37px;
+  font-family: 'Tangerine', cursive;
+}
+.card-content p {
+  font-size: 23px;
+  color:#ffcec2;
+  
+}
+button {
+  background-color: #ffcec2;
+  color: #3a0c00;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #f29075;
+}

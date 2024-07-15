@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/profile.js"></script>
+	<script src="../js/logic.js"></script>
+	
+
+</head>
+<style>
+	main{ 
+		
+		padding: 20px;
+		border: 1px solid black;
+		width: 21cm; 
+		margin: 0 auto;
+		height: 29.7cm;
+		
+	}
+	h1{
+		font-size: 36px;
+		text-align: center;
+	}
+	.row{ 
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+	.col{
+		flex-basis: 88%;
+	}
+
+	.header{
+		flex-basis: 88%;
+		margin-bottom: 30px;
+	}
+	table{
+		width: 100%;
+		border-collapse: collapse;
+	}
+	th, td{
+		padding: 10px;
+		border: 1px solid black;
+	}
+	.total{
+		text-align: right;
+	}
+	.restaurant-info {
+	text-align: center;
+	margin: 20px 0;
+}
+.restaurant-info h1 {
+	font-size: 25px;
+	margin-bottom: 10px;
+	font-family: 'Bellefair', serif;
+}
+.restaurant-info p {
+	font-size: 16px; 
+	margin-bottom: 5px;
+	font-family: 'Bellefair', serif;
+	margin-bottom: 10px;
+}
+
+	 
+</style>
+<body>
+	<button id="dwnld-button">Download PDF</button><br><br>
+ <main >
+	<div class="restaurant-info">
+		<h1>Rendezvous Restaurant</h1>
+		<p>Kashmir Plaza, Bharat nagar,Batala Road</p>
+		<p>+91 7182187572 </p>
+	</div>
+	<div class="header">
+        <h2>Invoice</h2> 
+    </div>
+	<div class="container" >
+		<div class="row">
+			<div class="col">
+                <p>Customer ID: <label id="custid"></label>{{it.customer.id}}</label> </p>
+				<p>Customer Name: <label id="custname"></label>{{it.customer.name}}</label> </p>
+				<p>Registered Email: <label id="custemail">{{it.customer.email}}</label> </p>
+				<p>Phone: <label id="custphone">{{it.customer.phone}}</label> </p>
+                <p>Address:<label  id="custadd">{{it.customer.address}}</label> </p>
+				
+			</div>
+            
+			<div class="col">
+				<p>Order ID:<label id="ordId">{{it.invoice.id}}</label></p>
+				<p>Event Name:<label id="ordEvent" >{{it.invoice.event}}</label></p>
+				<p>Date: <label id="ordDate">{{it.invoice.date}}</label></p>
+				<p>Time: <label id="ordTime">{{it.invoice.time}}</label></p>
+				<p>Food:<label id="ordid">{{it.invoice.food}} </label></p>
+			</div>
+		</div> 
+        <br><br><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Qty</th>
+					<th>No. of Guests</th>
+					<th>Item Price</th>
+					<th>Tax</th>
+					<th>Total Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td >1</td>
+					<td id="ordguests">{{it.invoice.guests}}</td>
+					<td id="orditem">₹{{it.invoice.itemPrice}}</td>
+					<td id="ordtax">₹{{it.invoice.tax}}</td>
+					<td id="ordtotal">₹{{it.invoice.totalprice}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>*A total of 10% Tax is charged on your Item Price to make up the Total Price.</p>
+		<div class="footer">
+			<hr>
+			<p>If you have any queries you can contact us at our helpline no. +91 7182187572 or reach us at the Contact Us section in our website.</p>
+		</div>
+	</div>
+ </main>	
+</body>
+<script>
+    var button = document.getElementById("dwnld-button");
+  
+    button.addEventListener("click", function () {
+		window.print();
+    });
+</script>
+
+</html> 

@@ -1,0 +1,269 @@
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="./style/style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&family=Tangerine&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Metal&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style >
+        
+        .address {
+          color: #ffcec2;
+          text-align: center;
+          font-family: Alice ;
+          text-shadow: #c9c5c5;
+          }
+
+        .content{
+          color: #ffcec2;
+          text-align: center;
+        }
+        
+        body { 
+          background-color:#3a0c00;
+          margin-bottom: 50px;
+          margin-right:30px;
+          margin-left:30px;
+         
+        }
+
+        .carousel-inner img {
+         width: 100%;
+         height: 100%;
+         
+        }
+
+        a{
+          color:#ffcec2 
+          ;
+        }
+
+        .carousel{
+            border: 6px double #ffcec2 ;
+            padding: 10px;
+            border-radius: 12px;
+            width:100%;
+            height:680px;
+            color:white ;
+            
+             }
+     
+</style>
+    <title>Document</title>
+</head>
+<body>
+    
+  
+    <div class="overlay"></div>
+      <div class="popup">
+            <div class="image">
+            <img src="./img/popup.jpg" width="455px" height="596px">
+            </div>
+            <button id="close">&times;</button>
+           
+            <br><br>
+          <div class="h1">Special Offer</div>
+          <div class="dine"><img src="./img/dinner.png"width="250px" height="200x"></div><br>
+          <div class="h2">Offer Valid Till 30th April</div>
+            <p>
+              Earn a ₹500 gift card for every ₹2,000 spent on your first visit to our restaurant. 
+              You can redeem the voucher anythime throughout the year.
+            </p>
+          </p>
+        
+        </div>
+      </div>           
+
+  <br><br><br>
+  
+  <nav class="navbar navbar-expand-sm  justify-content-center sticky-top" >
+    <p class="name">Rendezvous</p>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">ABOUT US</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">MENU</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/catering">CATERING</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/hours-location">HOURS & LOCATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/reservation">RESERVATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link"href="/feedback">FEEDBACK</a>
+        </li>
+       </ul>
+       <div class="profile-dropdown">
+        <a class="profile dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="./img/profile.png" alt="Profile Icon" id="profile-img">
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Terms & Conditions</a>
+            <a class="dropdown-item" href="#">Logout</a>
+        </div>
+    </div>
+   </nav>
+  
+    
+      <div id="demo" class="carousel slide" data-ride="carousel" data-aos="zoom-in-down">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img  class="img-fluid" src="./img/raman-sqcH2q7lkvo-unsplash.jpg" alt="Los Angeles" height="50%" width="100%">
+            <div class="carousel-caption">
+              <h3>Authentic Indian dishes</h3>
+              <p>"where every dish tells a story"</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img  class="img-fluid" src="./img/kabir-cheema-8T9AVksyt7s-unsplash.jpg"  alt="Chicago"height="50%" width="100%"  >
+            <div class="carousel-caption">
+              <h3>Rich & Aromatic cuisine</h3>
+              <p>"a feast for the senses"</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img  class="img-fluid"src="./img/esperanza-doronila-Xns5s92Ipcc-unsplash.jpg" height="50%" width="100%" alt="New York">
+            <div class="carousel-caption">
+              <h3>Culinary Adventure</h3>
+              <p>"in harmony with your tongue"</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img  class="img-fluid" src="./img/pexels-marvin-ozz-2474661.jpg"  alt="Chicago"height="50%" width="100%"  >
+            <div class="carousel-caption">
+              <h3>Diverse Flavors</h3>
+              <p>"to tantalize your taste buds."</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img  class="img-fluid" src="./img/umesh-soni-g1qlhFbWPKg-unsplash.jpg"  alt="Chicago"height="50%" width="100%"  >
+            <div class="carousel-caption">
+              <h3>Aroma of Spices</h3>
+              <p>"your taste buds wanting more"</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    
+      <br><br><br>
+      <div class="animation" data-aos="fade-up" >
+      <div class="welcome"  >
+        Welcome !
+      </div>
+
+    <div class="Quote">
+      "Food is our common ground, a universal experience."
+    </div>
+    <br><br><br>
+ 
+    <div class="intro">
+      Rendezvous is a charming Indian restaurant located in the heart of Amritsar. Here, we invite you to embark on a culinary journey through the rich 
+          and diverse flavors of India. Our menu features an array of authentic dishes that are carefully crafted using the freshest ingredients and traditional cooking 
+          methods. Whether you're in the mood for a spicy vindaloo, a creamy korma, or a flavorful biryani, we have something to satisfy every taste bud.
+    
+          At Rendezvous, we aim to create a warm and inviting atmosphere where guests can relax and enjoy the true essence of Indian cuisine. From the colorful décor
+          to the welcoming staff, every detail has been carefully considered to provide an unforgettable dining experience.
+    
+          So why not come and join us at Rendezvous today? Let us transport you to the vibrant streets of India with every bite.We look forward to serving you soon.
+        <br><br>
+        <div class="my-button"><center>
+          <a href="/menu" class="button">VIEW MENU</a></center>
+        </div><br>
+      </div>
+    </div>
+      
+
+      
+    <div class="animation2" data-aos="fade-up">
+        <br><br><br><br><br><br>
+      <img src="./img/piotr-szulawski-DCmUhk54F6M-unsplash.jpg"; height="362px"; width="900px"; style="float: left; margin-left: 20px;"><br><br>
+      <div class="container1"><center><br>
+        <h2>
+          BOOK A TABLE 
+        </h2><br>
+        We would love to have you as our guest! <br><br>
+        <a href="/reservation" class="button">RESERVATION</a>
+      </center>
+      </div>
+    </div>
+
+    <div class="animation3"data-aos="fade-up"><br><br><br><br><br><br><br><br>
+      <img src="./img/nick-karvounis-Ciqxn7FE4vE-unsplash.jpg"; height="362px"; width="900px"; style="float: right; margin-right: 20px;"><br><br>
+      <div class="container2"><center><br>
+       
+        <h2>
+          HOURS & LOCATION
+        </h2><br>
+        <p>Get to know our timings and address</p>
+        <a href="/hours-location" class="button">VISIT US</a></center>
+        
+      </div>
+    </div>
+
+</div> 
+
+<br><br><br><br>
+
+<div class="footer">
+  <a href="/login" class="button2">EMAIL LOGIN</a>
+  <a href="/contactus" class="button3">CONTACT US</a>
+  <a href="https://www.instagram.com/rendevous_restaurant/" class="instagram" ><img src="./img/icons8-instagram-48.png" height="35px" width="35px"></a>
+  <a href="#" class="facebook" ><img src="./img/icons8-facebook-circled-48.png" height="35px" width="35px"></a>
+
+</div>
+
+        
+<script src="./js/index.js"></script>
+
+<!--
+  Our AOS
+-->
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 300,
+      duration:900,
+      delay:0
+    });
+  </script>
+
+  <!--
+  Our AOS
+-->
+
+</body>
+</html>

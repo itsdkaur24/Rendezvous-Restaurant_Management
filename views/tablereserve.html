@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style/style_dashboard2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+</head>
+<style> 
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action-buttons{
+  text-align: center;
+}
+
+#searchInput { 
+  width: 300px;
+  height: 40px;
+}
+
+</style>
+<body>
+
+ 
+ 
+ 
+
+<!--Navigation Bar-->
+<div class="container">
+  <div class="navigation">
+    <ul>
+      <li><br>
+          <span class="title" style="font-size: 47px; font-family:'Tangerine', cursive;font-style: italic; margin-left: 26px; color:#ffcec2;">
+            Rendezvous</span><br>
+      </li>
+
+      <li>
+        <a href="/dashboard">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="/Catering_Event">
+          <span class="icon">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </span>
+          <span class="title">Add Catering Event</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="/customers">
+          <span class="icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </span>
+          <span class="title">Customers</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/tablereserve">
+          <span class="icon">
+            <ion-icon name="clipboard-outline"></ion-icon>
+          </span>
+          <span class="title">Table Reservations</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/catering_dash">
+          <span class="icon">
+            <ion-icon name="restaurant-outline"></ion-icon>
+          </span>
+          <span class="title">Catering Orders</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/feedback_dash">
+          <span class="icon">
+            <ion-icon name="chatbox-outline"></ion-icon>
+          </span>
+          <span class="title">Feedback</span>
+        </a>
+      </li>
+ 
+    
+
+      <li>
+        <a href="/admin/logout">
+          <span class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </span>
+          <span class="title">Log Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-------------------------------Main-------------------------------->
+
+
+<div class="main" >
+
+<div class="heading">
+  Dashboard
+</div>
+
+<div class="user">
+    <img src="../img/customer01.jpg" width="300px" breadth="210px"> 
+</div>
+  
+</div>
+ 
+</div>
+
+<div class="Content-head"  data-aos="fade-up" >
+  Table Reservations
+</div><br><br>
+
+<div class="reserve_table" style="margin-left: 435px;">
+  <input type="text" id="searchInput" placeholder="Search..."> <br><br>
+  <button  style="background-color: #f5cfc6; color: #3a0c00;"onclick="window.location.href='/admin/TableReport'">Generate Report</button>&nbsp;&nbsp;
+ <br><br>
+  <table id="myTable" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>Phone</th>
+      <th>Date</th> 
+      <th>Time</th>
+      <th>Guests</th>
+      <th>Cancelled</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{@each(it.tablereserve)=>row,idx}}
+    <tr>
+      <td id="id">{{row.id}}</td>
+      <td id="name">{{row.name}}</td>
+      <td id="email">{{row.email}}</td>
+      <td id="phone">{{row.phone}}</td>
+      <td id="date">{{row.date}}</td>
+      <td id="time">{{row.time}}</td>
+      <td id="guests">{{row.guests}}</td>
+      <td id="cancelled">{{row.cancel}}</td>
+      <td>
+        <div class="action-buttons">
+          <button id="myBtn1" onclick="editDialog(`{{row.id}}`,`{{row.date}}`,`{{row.time}}`,`{{row.guests}}`)">Edit</button> <br><br>
+          <button id="myBtn2"onclick="deleteDialog(`{{row.id}}`)">Delete</button>
+        </div>
+      </td>
+    {{/each}}
+   
+  </tbody>
+</table>
+</div> 
+
+<!----------------------------------------------------------------------------Modals--------------------------------------------------------------->
+
+<!--------------------------------------------- Edit Modal ------------------------------------------------->
+
+<div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+   
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Reservation Details</h4>
+      </div> 
+      <div class="modal-body">
+        <br><br>
+        Reservation ID:
+        <label id="editId"></label> <br><br>
+        <label >
+          Date:
+          <input id="editDate"  type="date" name="date" required>
+        </label>
+  
+        <label >
+          Time:
+          <input id="editTime" type="time" name="time" required>
+        </label>
+  
+        <label >
+          Number of Guests:
+          <input id="editGuests" type="number" name="people" min="1" max="10" placeholder="No. of Guests (1-10)" required>
+        </label>
+        <button id="saveEdit" onclick="saveEdit()">Save</button>
+      </div>
+    </div>
+    
+  </div>
+</div> 
+
+<!----------------------------------------------Delete Modal ---------------------------------------------->
+
+
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Reservation Details</h4>
+      </div>
+      <div class="modal-body">
+         Delete the details for the Reservation ID: &nbsp;
+        <label id="deleteId"></label><br><br>
+      <button id="saveDelete" onclick="saveDelete()">Delete</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+<!--------------------------------icons--------------------------------->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/logic.js"></script>
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const table = document.getElementById('myTable');
+  const rows = table.getElementsByTagName('tr');
+  
+  searchInput.addEventListener('keyup', function() {
+    const query = this.value.toLowerCase();
+  
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const id = row.getElementsByTagName('td')[0].textContent.toLowerCase();
+      const name = row.getElementsByTagName('td')[1].textContent.toLowerCase();
+      const email = row.getElementsByTagName('td')[2].textContent.toLowerCase();
+      const phone = row.getElementsByTagName('td')[3].textContent.toLowerCase();
+      const date = row.getElementsByTagName('td')[4].textContent.toLowerCase();
+      const time = row.getElementsByTagName('td')[5].textContent.toLowerCase();
+      const guests = row.getElementsByTagName('td')[6].textContent.toLowerCase();
+      
+      if (id.indexOf(query) > -1 || name.indexOf(query) > -1 || email.indexOf(query) > -1 || phone.indexOf(query) > -1 || date.indexOf(query) > -1 || time.indexOf(query) > -1 || guests.indexOf(query) > -1 ) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    }
+  });
+  </script>
+
+
+</body>
+</html> 
+  

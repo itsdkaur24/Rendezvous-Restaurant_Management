@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&family=Tangerine&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Metal&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      <link rel="stylesheet" href="./style/style.css">
+      <link rel="stylesheet" href="./style/style_reg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm  justify-content-center sticky-top" >
+    <p class="name">Rendezvous</p>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">ABOUT US</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">MENU</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/catering">CATERING</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/hours-location">HOURS & LOCATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/reservation">RESERVATION</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link"href="/feedback">FEEDBACK</a>
+        
+        </li>
+       </ul>
+   </nav>
+
+
+<section class="form-container">
+   <div class="register-container">
+       <div class="register-heading">Register Now</div><br>
+        <div class="register-form">
+        <input id="name" type="text" name="name" required placeholder="Enter Your Name" class="box" maxlength="50">
+        <input id="email" type="email" name="email" required placeholder="Enter Your Email" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+        <input id="pass" type="password" name="pass" required placeholder="Enter Your Password" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+        <input id="cpass"type="password" name="cpass" required placeholder="Confirm Your Password" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+        <button type="submit" value="Register Now" class="btn" onclick="register()">Register</button><br>
+        <p>Already have an Account?&nbsp;&nbsp;<a href="/login" class="login-link">Login Now</a></p>
+       </div>
+    </div>
+
+</section>
+
+<script src="./js/logic.js"></script>
+</body>
+</html>
+
+

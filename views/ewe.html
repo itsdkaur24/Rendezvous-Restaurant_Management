@@ -1,0 +1,71 @@
+router.post('/CateringEvent',async(req,res,next)=>{
+  var admin =req.body;
+    var response={};
+  
+    query="insert into addevent( eventname,image,veg1,veg2,veg3,veg4,veg5,veg6,nonveg1,nonveg2,nonveg3,nonveg4,nonveg5,nonveg6) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    connection.query(query,[admin.eventname, admin.image,admin.veg1, admin.veg2, admin.veg3 ,admin.veg4,admin.veg5,admin.veg6,admin.nonveg1,admin.nonveg2,admin.nonveg3,admin.nonveg4,admin.nonveg5,admin.nonveg6],(err,results)=>{
+      if(!err){
+        response.status = 201;
+        response.msg = "Event Added Succesfull";
+        return res.status(response.status).send(response);
+      }
+      else{
+        response.status = 500;
+        return res.status(response.status).send(err);
+      }
+    })
+  })
+
+
+  async function AddEvent() {
+    var name = document.getElementById('event-name').value;
+    var image = document.getElementById('event-picture').value;
+    var veg1 = document.getElementById('veg-1').value; 
+    var veg2  = document.getElementById('veg-2').value;
+    var veg3  = document.getElementById('veg-3').value; 
+    var veg4  = document.getElementById('veg-4').value;
+    var veg5  = document.getElementById('veg-5').value;
+    var veg6  = document.getElementById('veg-6').value;
+    var nonveg1 = document.getElementById('nonveg-1').value; 
+    var nonveg2  = document.getElementById('nonveg-1').value;
+    var nonveg3  = document.getElementById('nonveg-1').value; 
+    var nonveg4  = document.getElementById('nonveg-1').value;
+    var nonveg5  = document.getElementById('nonveg-1').value;
+    var nonveg6  = document.getElementById('nonveg-1').value;
+
+    let resp = await fetch('/user/Catering_Event', {
+       method: "POST",
+       headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+          "name":name,
+          "image":image,
+          "veg1": veg1,
+          "veg2":veg2,
+          "veg3":veg3,
+          "veg4":veg4,
+          "veg5":veg5,
+          "veg6":veg6,
+          "nonveg1":nonveg1,
+          "nonveg2":nonveg2,
+          "nonveg3":nonveg3,
+          "nonveg4":nonveg4,
+          "nonveg5":nonveg5,
+          "nonveg6":nonveg6,
+       })
+    });
+ 
+    let respJson = await resp.json();
+    console.log(respJson);
+    if(respJson.status == 201){
+       console.log("Reserved successfully!");
+       window.alert(respJson.msg);
+       window.location.reload();
+    }
+    else{
+       window.alert(respJson.msg);
+    }
+ }
+ 
